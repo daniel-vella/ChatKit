@@ -557,8 +557,8 @@ public class MessagesListAdapter<MESSAGE extends IMessage>
     * WRAPPER
     * */
     public class Wrapper<DATA> {
-        DATA item;
-        boolean isSelected;
+        public DATA item;
+        public boolean isSelected;
 
         Wrapper(DATA item) {
             this.item = item;
