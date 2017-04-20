@@ -506,6 +506,11 @@ public class MessagesListAdapter<MESSAGE extends IMessage>
         };
     }
 
+    public void setIsSelectionModeEnabled(boolean status)
+    {
+        isSelectionModeEnabled = status;
+    }
+
     public void toggleItemSelectionStatus(int position, boolean status)
     {
         final Wrapper wrapper = items.get(position);
