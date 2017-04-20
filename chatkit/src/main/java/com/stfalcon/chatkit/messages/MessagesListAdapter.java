@@ -520,7 +520,8 @@ public class MessagesListAdapter<MESSAGE extends IMessage>
         if(wrapper.isSelected) {
             this.incrementSelectedItemsCount();
         } else {
-            this.decrementSelectedItemsCount();
+            selectedItemsCount--;
+            notifySelectionChanged();
         }
 
         MESSAGE message = (MESSAGE) wrapper.item;
