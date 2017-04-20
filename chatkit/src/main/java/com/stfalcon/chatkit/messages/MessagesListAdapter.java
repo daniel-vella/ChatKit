@@ -506,6 +506,16 @@ public class MessagesListAdapter<MESSAGE extends IMessage>
         };
     }
 
+    public void toggleItemSelectionStatus(int position, boolean status)
+    {
+        Wrapper<MESSAGE> wrapper = items.get(position);
+
+        items.get(position).isSelected = status;
+
+        MESSAGE message = (wrapper.item);
+        notifyItemChanged(getMessagePositionById(message.getId()));
+    }
+
     private View.OnLongClickListener getMessageLongClickListener(final Wrapper<MESSAGE> wrapper) {
         return new View.OnLongClickListener() {
             @Override
@@ -840,5 +850,15 @@ public class MessagesListAdapter<MESSAGE extends IMessage>
         public OutcomingMessageViewHolder(View itemView) {
             super(itemView);
         }
+    }
+
+    public List<Wrapper> getItems()
+    {
+        return this.items;
+    }
+
+    public void setItems(List<Wrapper> items)
+    {
+        this.items = items;
     }
 }
