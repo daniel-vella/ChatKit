@@ -512,6 +512,12 @@ public class MessagesListAdapter<MESSAGE extends IMessage>
 
         wrapper.isSelected = status;
 
+        if(wrapper.isSelected) {
+            this.incrementSelectedItemsCount();
+        } else {
+            this.decrementSelectedItemsCount();
+        }
+
         MESSAGE message = (MESSAGE) wrapper.item;
         notifyItemChanged(getMessagePositionById(message.getId()));
     }
