@@ -508,11 +508,11 @@ public class MessagesListAdapter<MESSAGE extends IMessage>
 
     public void toggleItemSelectionStatus(int position, boolean status)
     {
-        Wrapper<MESSAGE> wrapper = items.get(position);
+        final Wrapper wrapper = items.get(position);
 
-        items.get(position).isSelected = status;
+        wrapper.isSelected = status;
 
-        MESSAGE message = (wrapper.item);
+        MESSAGE message = (MESSAGE) wrapper.item;
         notifyItemChanged(getMessagePositionById(message.getId()));
     }
 
