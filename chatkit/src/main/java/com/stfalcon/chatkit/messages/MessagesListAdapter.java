@@ -481,9 +481,9 @@ public class MessagesListAdapter<MESSAGE extends IMessage>
         }
     }
 
-    private void notifyMessageLongClicked(MESSAGE message) {
+    private void notifyMessageLongClicked(MESSAGE message, View view) {
         if (onMessageLongClickListener != null) {
-            onMessageLongClickListener.onMessageLongClick(message);
+            onMessageLongClickListener.onMessageLongClick(message, view);
         }
     }
 
@@ -533,7 +533,7 @@ public class MessagesListAdapter<MESSAGE extends IMessage>
             @Override
             public boolean onLongClick(View view) {
                 if (selectionListener == null) {
-                    notifyMessageLongClicked(wrapper.item);
+                    notifyMessageLongClicked(wrapper.item, view);
                     return true;
                 } else {
                     isSelectionModeEnabled = true;
@@ -641,7 +641,7 @@ public class MessagesListAdapter<MESSAGE extends IMessage>
          *
          * @param message clicked message.
          */
-        void onMessageLongClick(MESSAGE message);
+        void onMessageLongClick(MESSAGE message, View view);
     }
 
     /**
