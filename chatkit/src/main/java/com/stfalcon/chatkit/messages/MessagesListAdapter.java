@@ -528,6 +528,13 @@ public class MessagesListAdapter<MESSAGE extends IMessage>
         notifyItemChanged(getMessagePositionById(message.getId()));
     }
 
+    public void toggleItemSelectionStatusByMessageId(String messageId, boolean status)
+    {
+        int position = getMessagePositionById(messageId);
+
+        toggleItemSelectionStatus(position, status);
+    }
+
     private View.OnLongClickListener getMessageLongClickListener(final Wrapper<MESSAGE> wrapper) {
         return new View.OnLongClickListener() {
             @Override
